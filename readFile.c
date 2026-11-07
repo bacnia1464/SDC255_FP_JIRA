@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+void readFile()
+{
+    FILE *file;
+    int character;
+
+    // Open the file in read mode
+    file = fopen("data.txt", "r");
+
+    // Check if the file opened successfully
+    if (file == NULL)
+    {
+        printf("Error opening file.\n");
+        return;
+    }
+
+    printf("Saved Information:\n");
+
+    // Read the first character from the file
+    character = fgetc(file);
+
+    // Continue reading until the end of the file
+    while (character != EOF)
+    {
+        printf("%c", character);
+        character = fgetc(file);
+    }
+
+    // Close the file
+    fclose(file);
+}
+
+
